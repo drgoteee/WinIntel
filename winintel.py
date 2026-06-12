@@ -1149,7 +1149,7 @@ def update_definitions(url=GITHUB_DEF_URL, silent=False):
         ver   = parsed.get("version", "?")
         date  = parsed.get("date", "?")
         if not silent:
-            print(f"[+] Updated: v{ver} ({date}) — {count} CVEs cached to {CACHE_FILE}")
+            print(f"[+] Updated: v{ver} ({date}) - {count} CVEs cached to {CACHE_FILE}")
         return True
     except urllib.error.URLError as e:
         if not silent:
@@ -1803,7 +1803,7 @@ def print_plain_output(sysinfo, vulns, services, args, cache_info=""):
     p2 = sum(1 for v in vulns if v.get("priority")=="P2")
 
     print("="*70)
-    print(f"  WinIntel v{VERSION} — Windows Exploit Intelligence")
+    print(f"  WinIntel v{VERSION} - Windows Exploit Intelligence")
     if cache_info: print(f"  Definitions: {cache_info}")
     print("="*70)
     print(f"  Host     : {sysinfo['hostname'] or 'unknown'}")
@@ -1822,20 +1822,20 @@ def print_plain_output(sysinfo, vulns, services, args, cache_info=""):
         ("MANUAL",    manual if show_manual else []),
     ]:
         if not entries: continue
-        print(f"\n{'─'*60}")
+        print(f"\n{'-'*60}")
         print(f"  {tier_label}")
-        print(f"{'─'*60}")
+        print(f"{'-'*60}")
         for v in entries:
             if args.msf_only and not v["msf"]: continue
             itw  = " (ITW)" if v.get("itw") else ""
             rel  = v.get("reliability","Unknown")
             cat  = CATEGORY_LABEL.get(v.get("category",""),"")
             prio = v.get("priority","P3")
-            print(f"\n  [{prio}] [{tier_label}] {v['cve']}  {v['severity']} · CVSS:{v['cvss']}{itw}")
+            print(f"\n  [{prio}] [{tier_label}] {v['cve']}  {v['severity']} CVSS:{v['cvss']}{itw}")
             print(f"  Type       : {v['type']}{'  | '+cat if cat else ''}")
             print(f"  Desc       : {v['desc']}")
             print(f"  Basis      : {v['reason']}")
-            print(f"  Patching   : {v.get('kb') or '—'}")
+            print(f"  Patching   : {v.get('kb') or '-'}")
             print(f"  Reliablty  : {rel}  {_rb(rel)}")
             if v.get("notes"):        print(f"  Notes      : {v['notes']}")
             if v.get("msf"):          print(f"  MSF        : use {v['msf']}")
@@ -2351,7 +2351,7 @@ def _print_quick(vulns, sysinfo, services):
         if not all_ranked:
             print("  No exploitable vulns found.")
             return
-        print("\n── QUICK ATTACK PLAN ──")
+        print("\n-- QUICK ATTACK PLAN --")
         for i, v in enumerate(all_ranked[:8], 1):
             itw  = " (ITW)" if v.get("itw") else ""
             print(f"\n  #{i} [{v['tier'][:4]}] [{v.get('priority','P3')}] {v['cve']}  {v.get('reliability','?')}{itw}")
@@ -2435,7 +2435,7 @@ Real-time update (after publishing GitHub repo):
     args = p.parse_args()
 
     if args.version:
-        print(f"WinIntel v{VERSION}  |  {len(CVE_DB)} CVEs built-in (2003–2026)")
+        print(f"WinIntel v{VERSION}  |  {len(CVE_DB)} CVEs built-in (2003-2026)")
         return
 
     if args.update:
@@ -2446,8 +2446,8 @@ Real-time update (after publishing GitHub repo):
         avail, remote_ver = check_update_available()
         cached = load_cached_definitions()
         print(f"WinIntel v{VERSION}  |  Built-in: {len(CVE_DB)} CVEs")
-        print(f"Cached defs : v{cached.get('version','none')} ({cached.get('date','—')})")
-        print(f"Remote defs : v{remote_ver}  {'← UPDATE AVAILABLE  →  run --update' if avail else '(up to date)'}")
+        print(f"Cached defs : v{cached.get('version','none')} ({cached.get('date','-')})")
+        print(f"Remote defs : v{remote_ver}  {'<- UPDATE AVAILABLE  ->  run --update' if avail else '(up to date)'}")
         return
 
     if args.generate_definitions:
@@ -2466,9 +2466,9 @@ Real-time update (after publishing GitHub repo):
         for v in CVE_DB.values():
             cats[v.get("category","")] = cats.get(v.get("category",""),0)+1
         print(f"WinIntel v{VERSION}")
-        print(f"Total CVEs : {len(CVE_DB)}  (2003–2026, XP → Win11 24H2)")
-        print(f"KB-based   : {kb_c}  → CONFIRMED tier")
-        print(f"Build-based: {build_c} → LIKELY tier")
+        print(f"Total CVEs : {len(CVE_DB)}  (2003-2026, XP -> Win11 24H2)")
+        print(f"KB-based   : {kb_c}  -> CONFIRMED tier")
+        print(f"Build-based: {build_c} -> LIKELY tier")
         print(f"ITW        : {itw_c}  (confirmed exploited in the wild)")
         print(f"CISA KEV   : {kev_c}  (federal known-exploited mandate)")
         print(f"MSF modules: {msf_c}")
@@ -2477,7 +2477,7 @@ Real-time update (after publishing GitHub repo):
         print(f"\nCategories:")
         for cat, cnt in sorted(cats.items(), key=lambda x:-x[1]):
             print(f"  {CATEGORY_LABEL.get(cat,cat or 'uncategorized'):<22} {cnt}")
-        print(f"\nEngine: confidence scoring · exploit chains · EDR awareness · HTML reports")
+        print(f"\nEngine: confidence scoring | exploit chains | EDR awareness | HTML reports")
         return
 
     # Load and merge cached definitions
