@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+dist/
+build/
+*.spec
+.winintel/
+*systeminfo*.txt
+*_sysinfo.txt
+*.csv
+*.rc

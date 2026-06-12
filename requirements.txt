@@ -1,0 +1,6 @@
+# WinIntel — runtime requirements
+# rich is optional — tool falls back to plain text without it
+rich>=13.0.0
+
+# Build requirements (only needed to compile .exe)
+# pyinstaller>=6.0.0

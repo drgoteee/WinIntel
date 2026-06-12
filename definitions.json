@@ -1,0 +1,4072 @@
+{
+  "version": "1.0.0",
+  "date": "2026-06-12",
+  "description": "WinIntel CVE definitions \u2014 https://github.com/drgoteee/winintel",
+  "cves": {
+    "CVE-2003-0352": {
+      "kb": "KB823980",
+      "ms": "MS03-026",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "rce_network",
+      "desc": "RPC DCOM buffer overrun (Blaster) \u2014 remote unauthenticated SYSTEM",
+      "msf": "exploit/windows/dcerpc/ms03_026_dcom",
+      "edb": null,
+      "secwiki": "MS03-026",
+      "requires": [
+        "rpc"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "Blaster worm \u2014 unauthenticated, no creds needed, fire-and-forget",
+      "poc_urls": [],
+      "tags": [
+        "worm",
+        "rce"
+      ]
+    },
+    "CVE-2005-1983": {
+      "kb": "KB899588",
+      "ms": "MS05-039",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "PnP Service buffer overflow \u2014 unauthenticated remote SYSTEM",
+      "msf": "exploit/windows/smb/ms05_039_pnp",
+      "edb": null,
+      "secwiki": "MS05-039",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2006-3439": {
+      "kb": "KB921883",
+      "ms": "MS06-040",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "Server service RPC buffer overflow \u2014 unauthenticated remote SYSTEM",
+      "msf": "exploit/windows/smb/ms06_040_netapi",
+      "edb": null,
+      "secwiki": "MS06-040",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2008-4250": {
+      "kb": "KB958644",
+      "ms": "MS08-067",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "Server service netapi stack overflow \u2014 unauthenticated remote SYSTEM",
+      "msf": "exploit/windows/smb/ms08_067_netapi",
+      "edb": null,
+      "secwiki": "MS08-067",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "Conficker \u2014 extremely reliable against unpatched XP/2003/Vista",
+      "poc_urls": [
+        "https://github.com/andyk/ms08-067"
+      ],
+      "tags": [
+        "worm",
+        "rce",
+        "no-auth"
+      ]
+    },
+    "CVE-2008-4037": {
+      "kb": "KB957097",
+      "ms": "MS08-068",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "ntlm_relay",
+      "desc": "SMB NTLM credential reflection \u2014 relay to code execution",
+      "msf": "exploit/windows/smb/smb_relay",
+      "edb": null,
+      "secwiki": "MS08-068",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "NTLM relay via SMB reflection. Pair with Responder.",
+      "poc_urls": [],
+      "tags": [
+        "relay"
+      ]
+    },
+    "CVE-2008-1084": {
+      "kb": "KB941693",
+      "ms": "MS08-025",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32.sys kernel driver LPE via crafted IOCTL \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS08-025",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2008-3464": {
+      "kb": "KB956803",
+      "ms": "MS08-066",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "AFD.sys ancillary function driver LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": 5704,
+      "secwiki": "MS08-066",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2009-1535": {
+      "kb": "KB970483",
+      "ms": "MS09-020",
+      "cvss": 5.0,
+      "severity": "MEDIUM",
+      "type": "AuthBypass",
+      "category": "rce_iis",
+      "desc": "IIS 6.0 WebDAV authentication bypass \u2014 unauthorized file access",
+      "msf": "exploit/windows/iis/iis_webdav_scstoragepathfromurl",
+      "edb": null,
+      "secwiki": "MS09-020",
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.2",
+        "6.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2009-2532": {
+      "kb": "KB975517",
+      "ms": "MS09-050",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "SMBv2 negotiate function index \u2014 unauthenticated remote SYSTEM (Vista/2008)",
+      "msf": "exploit/windows/smb/ms09_050_smb2_negotiate_func_index",
+      "edb": null,
+      "secwiki": "MS09-050",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2009-0079": {
+      "kb": "KB959454",
+      "ms": "MS09-012",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Task Scheduler churraskito \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS09-012",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2010-0232": {
+      "kb": "KB977165",
+      "ms": "MS10-015",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "KiTrap0D \u2014 kernel BIOS call via 16-bit app support, local SYSTEM (x86)",
+      "msf": "exploit/windows/local/ms10_015_kitrap0d",
+      "edb": 11199,
+      "secwiki": "MS10-015",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "KiTrap0D \u2014 most reliable Win7/Vista x86 LPE. Works pre- and post-SP1. First try this.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-015"
+      ],
+      "tags": [
+        "x86-only",
+        "ctf-common",
+        "first-try"
+      ]
+    },
+    "CVE-2010-0233": {
+      "kb": "KB978706",
+      "ms": "MS10-021",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Kernel double-free in object manager \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2010-2554": {
+      "kb": "KB982799",
+      "ms": "MS10-059",
+      "cvss": 6.9,
+      "severity": "MEDIUM",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Tracing Feature for Services race condition \u2014 local SYSTEM",
+      "msf": null,
+      "edb": 15609,
+      "secwiki": "MS10-059",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Tracing race condition \u2014 requires SeImpersonatePrivilege or service context",
+      "poc_urls": [
+        "https://www.exploit-db.com/exploits/15609"
+      ],
+      "tags": []
+    },
+    "CVE-2010-2555": {
+      "kb": "KB982799",
+      "ms": "MS10-059",
+      "cvss": 6.9,
+      "severity": "MEDIUM",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Tracing Feature for Services impersonation \u2014 local SYSTEM",
+      "msf": null,
+      "edb": 15609,
+      "secwiki": "MS10-059",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2010-3338": {
+      "kb": "KB2305420",
+      "ms": "MS10-092",
+      "cvss": 6.9,
+      "severity": "MEDIUM",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Task Scheduler .job privilege escalation \u2014 local SYSTEM",
+      "msf": "exploit/windows/local/ms10_092_schelevator",
+      "edb": null,
+      "secwiki": "MS10-092",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Excellent",
+      "notes": "Task Scheduler schelevator \u2014 stable MSF module, works on Win Vista/7",
+      "poc_urls": [],
+      "tags": [
+        "ctf-common"
+      ]
+    },
+    "CVE-2010-3961": {
+      "kb": "KB2393802",
+      "ms": "MS10-098",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys buffer overflow via crafted app \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2010-4398": {
+      "kb": "KB2393802",
+      "ms": "MS11-011",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Kernel stack overflow via RtlQueryRegistryValues \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS11-011",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-0043": {
+      "kb": "KB2524375",
+      "ms": "MS11-013",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kerberos_abuse",
+      "desc": "Kerberos unkeyed checksum \u2014 PAC forging LPE (domain joined only)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "kerberos"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-0045": {
+      "kb": "KB2479628",
+      "ms": "MS11-012",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel driver object handling \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-1249": {
+      "kb": "KB2503665",
+      "ms": "MS11-046",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "AFD.sys socket validation (afd.sys) \u2014 local SYSTEM",
+      "msf": null,
+      "edb": 40564,
+      "secwiki": "MS11-046",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "AFD.sys \u2014 reliable x86 LPE, EDB PoC compiles cleanly with mingw",
+      "poc_urls": [
+        "https://www.exploit-db.com/exploits/40564"
+      ],
+      "tags": [
+        "x86-only"
+      ]
+    },
+    "CVE-2011-2018": {
+      "kb": "KB2567680",
+      "ms": "MS11-097",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CSRSS improper message handling \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-3408": {
+      "kb": "KB2507938",
+      "ms": "MS11-010",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CSRSS logon process LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-3414": {
+      "kb": "KB2656351",
+      "ms": "MS11-100",
+      "cvss": 5.0,
+      "severity": "MEDIUM",
+      "type": "DoS",
+      "category": "rce_iis",
+      "desc": "ASP.NET hash table collision DoS via crafted POST \u2014 requires IIS+.NET",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2011-3416": {
+      "kb": "KB2656351",
+      "ms": "MS11-100",
+      "cvss": 6.0,
+      "severity": "MEDIUM",
+      "type": "AuthBypass",
+      "category": "rce_iis",
+      "desc": "ASP.NET Forms Authentication bypass \u2014 account hijack via padding attack",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2012-0002": {
+      "kb": "KB2621440",
+      "ms": "MS12-020",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_rdp",
+      "desc": "RDP pre-auth remote code execution \u2014 unauthenticated SYSTEM via port 3389",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS12-020",
+      "requires": [
+        "rdp"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Average",
+      "notes": "MS12-020 RDP RCE \u2014 BSoD-level crash risk. No public reliable exec PoC.",
+      "poc_urls": [],
+      "tags": [
+        "crash-risk",
+        "rdp"
+      ]
+    },
+    "CVE-2012-0178": {
+      "kb": "KB2724197",
+      "ms": "MS12-042",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "SYSRET kernel handler flaw \u2014 local SYSTEM (x64 only)",
+      "msf": "exploit/windows/local/ms12_042_sysret",
+      "edb": null,
+      "secwiki": "MS12-042",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x64"
+      ],
+      "affected": [
+        "5.2",
+        "6.0",
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "SYSRET \u2014 x64 only. Very reliable on Win7/2008R2 SP1 x64 with MSF module.",
+      "poc_urls": [],
+      "tags": [
+        "x64-only"
+      ]
+    },
+    "CVE-2013-0002": {
+      "kb": "KB2756918",
+      "ms": "MS13-004",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_iis",
+      "desc": ".NET WinForms memory corruption \u2014 RCE via hosted .NET app or IIS",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-0003": {
+      "kb": "KB2756918",
+      "ms": "MS13-004",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_iis",
+      "desc": ".NET object serialization buffer overflow \u2014 RCE via hosted .NET app",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-0008": {
+      "kb": "KB2778930",
+      "ms": "MS13-005",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k window station message handling \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS13-005",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-0073": {
+      "kb": "KB2800088",
+      "ms": "MS13-015",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_iis",
+      "desc": ".NET CAS check bypass \u2014 full privilege escalation / RCE via .NET app",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "iis"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-0076": {
+      "kb": "KB2790113",
+      "ms": "MS13-019",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CSRSS use-after-free in CreateProcess \u2014 local SYSTEM (Win7 only)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-1283": {
+      "kb": "KB2813170",
+      "ms": "MS13-031",
+      "cvss": 6.9,
+      "severity": "MEDIUM",
+      "type": "LPE",
+      "category": "kernel_race",
+      "desc": "Kernel race condition in object manager \u2014 local LPE",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-1285": {
+      "kb": "KB2807986",
+      "ms": "MS13-027",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "USB descriptor integer overflow in usbhub.sys \u2014 local SYSTEM via USB device",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2013-1291": {
+      "kb": "KB2813170",
+      "ms": "MS13-031",
+      "cvss": 7.1,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_race",
+      "desc": "Kernel race condition in thread object \u2014 local LPE",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2014-1767": {
+      "kb": "KB2957189",
+      "ms": "MS14-040",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "AFD.sys double-free \u2014 local SYSTEM",
+      "msf": "exploit/windows/local/ms14_040_afd_bypass",
+      "edb": null,
+      "secwiki": "MS14-040",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "AFD.sys double-free \u2014 reliable MSF module for x86 targets",
+      "poc_urls": [],
+      "tags": [
+        "x86-only"
+      ]
+    },
+    "CVE-2014-4113": {
+      "kb": "KB3000061",
+      "ms": "MS14-058",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys use-after-free (track popup menu) \u2014 local SYSTEM, exploited ITW",
+      "msf": "exploit/windows/local/ms14_058_track_popup_menu",
+      "edb": null,
+      "secwiki": "MS14-058",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k UAF \u2014 exploited ITW by APT groups. Reliable MSF module.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "ctf-common"
+      ]
+    },
+    "CVE-2014-6321": {
+      "kb": "KB2992611",
+      "ms": "MS14-066",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_network",
+      "desc": "Schannel pre-auth RCE via malformed TLS packets \u2014 remote SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS14-066",
+      "requires": [
+        "rdp",
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Low",
+      "notes": "Schannel \u2014 no reliable public exploit. DoS-level PoC only.",
+      "poc_urls": [],
+      "tags": [
+        "no-public-rce"
+      ]
+    },
+    "CVE-2014-6324": {
+      "kb": "KB3011780",
+      "ms": "MS14-068",
+      "cvss": 9.0,
+      "severity": "CRITICAL",
+      "type": "LPE",
+      "category": "kerberos_abuse",
+      "desc": "Kerberos PAC validation bypass \u2014 domain privilege escalation to DA",
+      "msf": "exploit/windows/kerberos/ms14_068_kerberos_checksum",
+      "edb": null,
+      "secwiki": "MS14-068",
+      "requires": [
+        "kerberos"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "MS14-068 Kerberos PAC bypass \u2014 domain admin in one shot if domain joined. Requires low-priv domain account.",
+      "poc_urls": [
+        "https://github.com/gentilkiwi/kekeo",
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068"
+      ],
+      "tags": [
+        "domain-only",
+        "da-escalation",
+        "kerberos"
+      ]
+    },
+    "CVE-2014-4076": {
+      "kb": "KB2989935",
+      "ms": "MS14-070",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "TCP/IP kernel driver LPE \u2014 local SYSTEM (Server 2003 only)",
+      "msf": "exploit/windows/local/ms14_070_tcpip_ioctl",
+      "edb": null,
+      "secwiki": "MS14-070",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-0003": {
+      "kb": "KB3023266",
+      "ms": "MS15-001",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Application compatibility cache LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-001",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "AppCompat cache \u2014 rarely has prebuilt binary, may need to compile",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-0057": {
+      "kb": "KB3036220",
+      "ms": "MS15-010",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys scrollbar use-after-free \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-010",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Win32k scrollbar UAF \u2014 check SecWiki for prebuilt binary",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-0062": {
+      "kb": "KB3031432",
+      "ms": "MS15-015",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "CreateProcess impersonation token LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-015",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-1701": {
+      "kb": "KB3057191",
+      "ms": "MS15-051",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys use-after-free (client copy image) \u2014 local SYSTEM, exploited ITW",
+      "msf": "exploit/windows/local/ms15_051_client_copy_image",
+      "edb": null,
+      "secwiki": "MS15-051",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k UAF \u2014 exploited ITW, reliable MSF module for x86",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "x86-only"
+      ]
+    },
+    "CVE-2015-2387": {
+      "kb": "KB3057839",
+      "ms": "MS15-061",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys font parsing \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-061",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-2426": {
+      "kb": "KB3077657",
+      "ms": "MS15-077",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Adobe Type Manager (ATM) font driver LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-077",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-2370": {
+      "kb": "KB3067505",
+      "ms": "MS15-076",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "RPC elevation of privilege via impersonation \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-076",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2015-2546": {
+      "kb": "KB3089656",
+      "ms": "MS15-097",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys memory corruption \u2014 local SYSTEM, exploited ITW",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS15-097",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "build_cap": {
+        "10.0": 10240
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k \u2014 exploited ITW by APT, affects Win8.1+",
+      "poc_urls": [],
+      "tags": [
+        "itw"
+      ]
+    },
+    "CVE-2016-0051": {
+      "kb": "KB3136041",
+      "ms": "MS16-016",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "WebDAV client driver LPE (abuses local WebDAV client) \u2014 local SYSTEM",
+      "msf": "exploit/windows/local/ms16_016_webdav",
+      "edb": null,
+      "secwiki": "MS16-016",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x86"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "WebDAV client LPE \u2014 reliable MSF module, x86 targets only",
+      "poc_urls": [],
+      "tags": [
+        "x86-only"
+      ]
+    },
+    "CVE-2016-0099": {
+      "kb": "KB3143141",
+      "ms": "MS16-032",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Secondary Logon service handle LPE \u2014 local SYSTEM (PowerShell PoC public)",
+      "msf": "exploit/windows/local/ms16_032_secondary_logon_handle_privesc",
+      "edb": null,
+      "secwiki": "MS16-032",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "build_cap": {
+        "10.0": 10586
+      },
+      "itw": false,
+      "reliability": "Excellent",
+      "notes": "MS16-032 Secondary Logon \u2014 PowerShell PoC public + MSF module. First try on Win7/8/10.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032",
+        "https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/privesc/Invoke-MS16032.ps1"
+      ],
+      "tags": [
+        "ctf-common",
+        "ps-poc",
+        "first-try"
+      ]
+    },
+    "CVE-2016-0167": {
+      "kb": "KB3143145",
+      "ms": "MS16-034",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys use-after-free \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS16-034",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "build_cap": {
+        "10.0": 14393
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Win32k UAF \u2014 SecWiki binary available, works on Win Vista\u201310",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2016-3225": {
+      "kb": "KB3164038",
+      "ms": "MS16-075",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "ntlm_relay",
+      "desc": "Hot Potato / RottenPotato NTLM relay \u2014 local SYSTEM",
+      "msf": "exploit/windows/local/ms16_075_reflection_juicy",
+      "edb": null,
+      "secwiki": "MS16-075",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "Hot Potato / RottenPotato NTLM relay \u2014 local SYSTEM via NBNS spoof + NTLM relay",
+      "poc_urls": [
+        "https://github.com/foxglovesec/RottenPotato",
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-075"
+      ],
+      "tags": [
+        "potato",
+        "ctf-common"
+      ]
+    },
+    "CVE-2016-3309": {
+      "kb": "KB3178466",
+      "ms": "MS16-098",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys kernel driver LPE \u2014 local SYSTEM (Win 8.1 x64)",
+      "msf": null,
+      "edb": 41020,
+      "secwiki": "MS16-098",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x64"
+      ],
+      "affected": [
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Great",
+      "notes": "MS16-098 Win32k LPE \u2014 x64 binary on SecWiki works well on 8.1/2012R2",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-098",
+        "https://www.exploit-db.com/exploits/41020"
+      ],
+      "tags": [
+        "x64-only",
+        "ctf-common",
+        "binary-available"
+      ]
+    },
+    "CVE-2016-7255": {
+      "kb": "KB3199135",
+      "ms": "MS16-135",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k.sys use-after-free \u2014 local SYSTEM (exploited ITW by APT28)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS16-135",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "build_cap": {
+        "10.0": 14393
+      },
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Win32k UAF \u2014 exploited ITW by APT28 (Fancy Bear), SecWiki binary available",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "apt"
+      ]
+    },
+    "CVE-2016-3371": {
+      "kb": "KB3186973",
+      "ms": "MS16-111",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel API LPE \u2014 local SYSTEM (Win 10 10586)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS16-111",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "build_cap": {
+        "10.0": 14393
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2017-0144": {
+      "kb": "KB4013389",
+      "ms": "MS17-010",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "EternalBlue SMBv1 \u2014 unauthenticated remote SYSTEM via port 445",
+      "msf": "exploit/windows/smb/ms17_010_eternalblue",
+      "edb": 42315,
+      "secwiki": "MS17-010",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "EternalBlue (NSA/WannaCry) \u2014 fire-and-forget SYSTEM. Most famous Windows exploit.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS17-010",
+        "https://github.com/worawit/MS17-010"
+      ],
+      "tags": [
+        "nsa",
+        "worm",
+        "no-auth",
+        "smb",
+        "legendary"
+      ]
+    },
+    "CVE-2017-0145": {
+      "kb": "KB4013389",
+      "ms": "MS17-010",
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "EternalRomance/Synergy SMBv1 \u2014 unauthenticated remote SYSTEM via port 445",
+      "msf": "exploit/windows/smb/ms17_010_psexec",
+      "edb": null,
+      "secwiki": "MS17-010",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "EternalRomance/Synergy \u2014 works on XP through Server 2016 (pre-SMBv1 fix)",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS17-010"
+      ],
+      "tags": [
+        "nsa",
+        "no-auth",
+        "smb"
+      ]
+    },
+    "CVE-2017-0101": {
+      "kb": "KB4013081",
+      "ms": "MS17-017",
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "GDI palette objects kernel race condition \u2014 local SYSTEM (Win7/8)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "MS17-017",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2017-0213": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows COM aggregate marshaler LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": 42020,
+      "secwiki": "CVE-2017-0213",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.0": [
+          6000,
+          9999
+        ],
+        "6.1": [
+          7600,
+          17134
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          16299
+        ]
+      },
+      "itw": false,
+      "reliability": "Great",
+      "notes": "COM marshaler LPE \u2014 widely used in CTFs. SecWiki binary works without recompile.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213",
+        "https://www.exploit-db.com/exploits/42020"
+      ],
+      "tags": [
+        "ctf-common",
+        "binary-available"
+      ]
+    },
+    "CVE-2017-8464": {
+      "kb": null,
+      "ms": null,
+      "cvss": 9.3,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_network",
+      "desc": "LNK shortcut RCE \u2014 requires user to open folder with crafted .lnk file",
+      "msf": "exploit/windows/fileformat/ms10_046_shortcut_icon_dllloader",
+      "edb": null,
+      "secwiki": "CVE-2017-8464",
+      "requires": [
+        "user_interact"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "5.1",
+        "5.2",
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "5.1": [
+          2600,
+          9999
+        ],
+        "5.2": [
+          3790,
+          9999
+        ],
+        "6.0": [
+          6000,
+          9999
+        ],
+        "6.1": [
+          7600,
+          17134
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          16299
+        ]
+      },
+      "itw": true,
+      "reliability": "Average",
+      "notes": "LNK RCE \u2014 requires user interaction (browsing a folder). Phishing vector.",
+      "poc_urls": [],
+      "tags": [
+        "phishing",
+        "user-interaction"
+      ]
+    },
+    "CVE-2018-8120": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k NtUserSetImeInfoEx null pointer dereference \u2014 local SYSTEM (Win7 SP1 x86/x64)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2018-8120",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7601,
+          7601
+        ]
+      },
+      "itw": false,
+      "reliability": "Great",
+      "notes": "Win32k null-ptr \u2014 Win7 SP1 x86/x64. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8120"
+      ],
+      "tags": [
+        "win7-sp1-only",
+        "binary-available"
+      ]
+    },
+    "CVE-2018-8440": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows ALPC LPE \u2014 local SYSTEM (all Windows before Sep 2018 patch)",
+      "msf": null,
+      "edb": 45053,
+      "secwiki": "CVE-2018-8440",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.0",
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          17134
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          17134
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "ALPC LPE \u2014 all Windows before Sep 2018. Public PoC reliable.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8440",
+        "https://www.exploit-db.com/exploits/45053"
+      ],
+      "tags": [
+        "itw",
+        "alpc"
+      ]
+    },
+    "CVE-2018-8453": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k use-after-free EoP \u2014 local SYSTEM (Win8.1+, exploited ITW)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2018-8453",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          17763
+        ]
+      },
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Win32k UAF \u2014 exploited ITW by FruityArmor APT. Win8.1+ targets.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8453"
+      ],
+      "tags": [
+        "itw",
+        "apt"
+      ]
+    },
+    "CVE-2018-8639": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k use-after-free \u2014 local SYSTEM (Win7/8/10, before Dec 2018 patch)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2018-8639",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          17763
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          17763
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Win32k UAF \u2014 pre-Dec 2018 Windows. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8639"
+      ],
+      "tags": []
+    },
+    "CVE-2019-0803": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k object handling LPE \u2014 local SYSTEM",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2019-0803",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          17763
+        ],
+        "10.0": [
+          10240,
+          17763
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Win32k LPE \u2014 SecWiki binary works on most Win7/10 targets",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-0803"
+      ],
+      "tags": []
+    },
+    "CVE-2019-0836": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel call gate LPE \u2014 local SYSTEM (Win10 only)",
+      "msf": null,
+      "edb": 46718,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x64"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          10240,
+          17763
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2019-1458": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.2,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k EoP \u2014 local SYSTEM (Win7/8/10, exploited ITW before Jan 2020)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2019-1458",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          18363
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          18362
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k LPE \u2014 exploited ITW by WizardOpium APT. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-1458"
+      ],
+      "tags": [
+        "itw",
+        "apt"
+      ]
+    },
+    "CVE-2019-0859": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k use-after-free EoP \u2014 local SYSTEM, exploited ITW by SandCat/APT (Apr 2019)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2019-0859",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          18362
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          17763
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k UAF \u2014 ITW by SandCat APT. Reliable on Win7 SP1 through early Win10. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-0859"
+      ],
+      "tags": [
+        "itw",
+        "apt",
+        "win32k"
+      ]
+    },
+    "CVE-2019-1132": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k null-deref EoP \u2014 local SYSTEM, exploited ITW by Buhtrap APT (Jul 2019)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          7601
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ]
+      },
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Win32k null-deref \u2014 ITW by Buhtrap APT (Eastern Europe espionage). Win7/2008 R2 only.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "apt",
+        "win7"
+      ]
+    },
+    "CVE-2020-0787": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "BITS service EoP \u2014 local SYSTEM (requires BITS service running)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2020-0787",
+      "requires": [
+        "local",
+        "bits"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          18362
+        ],
+        "10.0": [
+          10240,
+          18362
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "BITS service EoP \u2014 requires BITS running. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2020-0787"
+      ],
+      "tags": [
+        "bits-required"
+      ]
+    },
+    "CVE-2020-0796": {
+      "kb": null,
+      "ms": null,
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "rce_smb",
+      "desc": "SMBGhost SMBv3 \u2014 unauthenticated remote SYSTEM via port 445 (Win10 1903/1909)",
+      "msf": "exploit/windows/smb/smbghost_auth_bypass",
+      "edb": null,
+      "secwiki": "CVE-2020-0796",
+      "requires": [
+        "smb"
+      ],
+      "arch": [
+        "x64"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          18362,
+          18363
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "SMBGhost \u2014 pre-auth SYSTEM on Win10 1903/1909. MSF module reliable.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2020-0796"
+      ],
+      "tags": [
+        "itw",
+        "smb",
+        "no-auth",
+        "win10-only"
+      ]
+    },
+    "CVE-2020-1472": {
+      "kb": null,
+      "ms": null,
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "type": "LPE",
+      "category": "kerberos_abuse",
+      "desc": "ZeroLogon Netlogon \u2014 domain takeover without credentials (DC only)",
+      "msf": "exploit/windows/dcerpc/cve_2020_1472_zerologon",
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "kerberos",
+        "rpc"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          18362
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          19041
+        ]
+      },
+      "itw": true,
+      "reliability": "Excellent",
+      "notes": "ZeroLogon \u2014 domain takeover with 0 creds. Requires DC access. Extremely impactful.",
+      "poc_urls": [
+        "https://github.com/SecuraBV/CVE-2020-1472"
+      ],
+      "tags": [
+        "itw",
+        "domain-only",
+        "da-instant",
+        "dc-required"
+      ]
+    },
+    "CVE-2021-1675": {
+      "kb": null,
+      "ms": null,
+      "cvss": 8.8,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "print_spooler",
+      "desc": "PrintNightmare \u2014 SYSTEM via Print Spooler (RCE remote / LPE local)",
+      "msf": "exploit/windows/dcerpc/cve_2021_1675_printnightmare",
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "print",
+        "rpc"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          19042
+        ],
+        "10.0": [
+          10240,
+          19041
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "PrintNightmare \u2014 RCE via Print Spooler. Requires Spooler running.",
+      "poc_urls": [
+        "https://github.com/cube0x0/CVE-2021-1675",
+        "https://github.com/calebstewart/CVE-2021-1675"
+      ],
+      "tags": [
+        "itw",
+        "print-spooler",
+        "ctf-common"
+      ]
+    },
+    "CVE-2021-1732": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k EoP \u2014 local SYSTEM (Win10 20H2, exploited ITW)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2021-1732",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          19041,
+          19042
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2021-33739": {
+      "kb": null,
+      "ms": null,
+      "cvss": 8.4,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Microsoft DWM Core Library EoP \u2014 local SYSTEM (Win10/Server 20H2)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2021-33739",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          19041,
+          19042
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2021-40449": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k use-after-free EoP (CallNextHookEx) \u2014 local SYSTEM, exploited ITW by MysterySnail/IronHusky APT (Oct 2021)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2021-40449",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          7601
+        ],
+        "6.2": [
+          9200,
+          9999
+        ],
+        "6.3": [
+          9600,
+          9999
+        ],
+        "10.0": [
+          10240,
+          19043
+        ]
+      },
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Win32k UAF \u2014 ITW by MysterySnail/IronHusky APT (Kaspersky). Works Win7 through Win10 21H1. SecWiki binary available.",
+      "poc_urls": [
+        "https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2021-40449"
+      ],
+      "tags": [
+        "itw",
+        "apt",
+        "win32k",
+        "mysterysnail"
+      ]
+    },
+    "CVE-2021-34527": {
+      "kb": null,
+      "ms": null,
+      "cvss": 8.8,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "print_spooler",
+      "desc": "PrintNightmare v2 \u2014 SYSTEM via Print Spooler (RCE remote / LPE local)",
+      "msf": "exploit/windows/dcerpc/cve_2021_1675_printnightmare",
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "print",
+        "rpc"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "6.1": [
+          7600,
+          19042
+        ],
+        "10.0": [
+          10240,
+          19041
+        ]
+      },
+      "itw": true,
+      "reliability": "Great",
+      "notes": "PrintNightmare v2 \u2014 Spooler RCE. Bypass for initial patch. Same PoC works.",
+      "poc_urls": [
+        "https://github.com/cube0x0/CVE-2021-1675"
+      ],
+      "tags": [
+        "itw",
+        "print-spooler"
+      ]
+    },
+    "CVE-2021-36934": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "cred_access",
+      "desc": "HiveNightmare/SeriousSam \u2014 SAM file read as low-priv user, credential dump",
+      "msf": null,
+      "edb": 50070,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          19041,
+          19041
+        ]
+      },
+      "itw": false,
+      "reliability": "Good",
+      "notes": "HiveNightmare \u2014 read SAM/SYSTEM as low-priv user. Dump hashes \u2192 pass-the-hash.",
+      "poc_urls": [
+        "https://github.com/GossiTheDog/HiveNightmare"
+      ],
+      "tags": [
+        "cred-dump",
+        "win10-only"
+      ]
+    },
+    "CVE-2022-21999": {
+      "kb": "KB5010386",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "print_spooler",
+      "desc": "Windows Print Spooler LPE \u2014 local SYSTEM (requires Spooler running)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local",
+        "print"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2022-24521": {
+      "kb": "KB5012647",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver LPE \u2014 local SYSTEM, exploited ITW by ransomware operators (Win10+Win11)",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2022-24521",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2022-37969": {
+      "kb": "KB5017316",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver LPE \u2014 local SYSTEM, exploited ITW by Nokoyawa and other ransomware groups",
+      "msf": null,
+      "edb": null,
+      "secwiki": "CVE-2022-37969",
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2022-38028": {
+      "kb": "KB5018410",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "print_spooler",
+      "desc": "Print Spooler LPE \u2014 local SYSTEM, exploited ITW by Forest Blizzard (APT28/GRU)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local",
+        "print"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2022-41073": {
+      "kb": "KB5019959",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "print_spooler",
+      "desc": "Windows Print Spooler LPE \u2014 local SYSTEM, exploited ITW (Oct 2022)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local",
+        "print"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2023-21674": {
+      "kb": "KB5022282",
+      "ms": null,
+      "cvss": 8.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows ALPC LPE \u2014 local SYSTEM, exploited ITW by Nokoyawa ransomware (Jan 2023)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2023-23397": {
+      "kb": "KB5023322",
+      "ms": null,
+      "cvss": 9.8,
+      "severity": "CRITICAL",
+      "type": "RCE",
+      "category": "ntlm_relay",
+      "desc": "Outlook NTLM relay \u2014 Net-NTLMv2 leak via calendar invite, zero clicks, exploited ITW by APT28",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "user_interact"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2023-28252": {
+      "kb": "KB5025221",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver LPE \u2014 local SYSTEM, exploited ITW by Nokoyawa ransomware (Apr 2023, ZDI)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2023-36802": {
+      "kb": "KB5030219",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "MSKSSRV.sys Microsoft Streaming Service proxy LPE \u2014 local SYSTEM, exploited ITW (Sep 2023)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2023-36874": {
+      "kb": "KB5028185",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows Error Reporting service LPE \u2014 local SYSTEM, exploited ITW by Storm-0978 (Jul 2023)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-21338": {
+      "kb": "KB5034765",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "appid.sys kernel driver LPE \u2014 local SYSTEM, exploited ITW by Lazarus/DPRK (Feb 2024)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-26169": {
+      "kb": "KB5036893",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows Error Reporting LPE \u2014 local SYSTEM, exploited ITW by Black Basta ransomware (Mar 2024)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-26229": {
+      "kb": "KB5037771",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel LPE via csc.sys \u2014 local SYSTEM (public PoC available)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-30088": {
+      "kb": "KB5039212",
+      "ms": null,
+      "cvss": 7.0,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel LPE \u2014 local SYSTEM, exploited ITW by Storm-0978/RomCom (Jun 2024)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-38106": {
+      "kb": "KB5041587",
+      "ms": null,
+      "cvss": 7.0,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel LPE \u2014 local SYSTEM, exploited ITW by multiple threat actors (Aug 2024)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2024-38193": {
+      "kb": "KB5041580",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "AFD.sys LPE \u2014 local SYSTEM, exploited ITW by Lazarus/DPRK (ESET+Microsoft Aug 2024), Win10+Win11",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Average",
+      "notes": "",
+      "poc_urls": [],
+      "tags": []
+    },
+    "CVE-2025-21333": {
+      "kb": "KB5049981",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Hyper-V NT Kernel VSP heap buffer overflow \u2014 local SYSTEM (Win10/11/Server 2022/2025), exploited ITW Jan 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Hyper-V VSP 0day \u2014 exploited before patch, affects Win10/11 even without Hyper-V role installed",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "hyper-v",
+        "0day"
+      ]
+    },
+    "CVE-2025-21334": {
+      "kb": "KB5049981",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Hyper-V NT Kernel VSP use-after-free \u2014 local SYSTEM (Win10/11/Server), exploited ITW Jan 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Hyper-V VSP 0day \u2014 triplet of ITW zero-days in Jan 2025, same component as 21333/21335",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "hyper-v",
+        "0day"
+      ]
+    },
+    "CVE-2025-21335": {
+      "kb": "KB5049981",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Hyper-V NT Kernel VSP use-after-free \u2014 local SYSTEM (Win10/11/Server), exploited ITW Jan 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Hyper-V VSP 0day \u2014 triplet of ITW zero-days in Jan 2025",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "hyper-v",
+        "0day"
+      ]
+    },
+    "CVE-2025-21275": {
+      "kb": "KB5049981",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "installer_lpe",
+      "desc": "Windows App Package Installer EoP \u2014 local SYSTEM (publicly disclosed before patch, Jan 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "App Package Installer LPE \u2014 publicly known before patch, similar chain to CVE-2021-41379",
+      "poc_urls": [],
+      "tags": [
+        "installer",
+        "disclosed"
+      ]
+    },
+    "CVE-2025-21418": {
+      "kb": "KB5051987",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "AFD.sys (Ancillary Function Driver for WinSock) EoP \u2014 local SYSTEM, exploited ITW as 0day Feb 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "AFD.sys 0day \u2014 same driver class as MS11-046/CVE-2024-38193. Exploited ITW Feb 2025.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "afd",
+        "0day"
+      ]
+    },
+    "CVE-2025-21391": {
+      "kb": "KB5051987",
+      "ms": null,
+      "cvss": 7.1,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows Storage EoP \u2014 local deletion of files leading to privilege escalation, exploited ITW Feb 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Average",
+      "notes": "Windows Storage EoP via file deletion \u2014 unusual primitive, ITW Feb 2025. No public PoC.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "storage"
+      ]
+    },
+    "CVE-2025-24983": {
+      "kb": "KB5053606",
+      "ms": null,
+      "cvss": 7.0,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Win32k use-after-free \u2014 local SYSTEM, exploited ITW since Mar 2023 via PipeMagic backdoor (ESET, patched Mar 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "Win32k UAF \u2014 exploited since 2023 via PipeMagic before patched in Mar 2025 (ESET). 2-year ITW window.",
+      "poc_urls": [
+        "https://github.com/ESET/research"
+      ],
+      "tags": [
+        "itw",
+        "pipemagic",
+        "eset",
+        "win32k"
+      ]
+    },
+    "CVE-2025-24984": {
+      "kb": "KB5053606",
+      "ms": null,
+      "cvss": 4.6,
+      "severity": "MEDIUM",
+      "type": "Info",
+      "category": "cred_access",
+      "desc": "Windows NTFS info disclosure via USB device \u2014 partial heap memory leak, exploited ITW (requires physical access)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Low",
+      "notes": "Physical access required (USB). Unusual ITW use \u2014 likely targeted/espionage rather than opportunistic.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "physical-access",
+        "ntfs"
+      ]
+    },
+    "CVE-2025-24985": {
+      "kb": "KB5053606",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "rce_network",
+      "desc": "Windows Fast FAT File System Driver integer overflow \u2014 RCE via mounting crafted VHD, exploited ITW Mar 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "user_interact"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Fast FAT RCE via VHD mount \u2014 pair with LPE for full chain. Exploited ITW Mar 2025.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "ntfs",
+        "vhd-mount"
+      ]
+    },
+    "CVE-2025-24991": {
+      "kb": "KB5053606",
+      "ms": null,
+      "cvss": 5.5,
+      "severity": "MEDIUM",
+      "type": "Info",
+      "category": "cred_access",
+      "desc": "Windows NTFS info disclosure \u2014 heap memory leak via crafted VHD mount, exploited ITW Mar 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "user_interact"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Low",
+      "notes": "NTFS info disclosure \u2014 exploited ITW likely as part of chain. Low direct impact alone.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "ntfs",
+        "info-disclosure"
+      ]
+    },
+    "CVE-2025-24993": {
+      "kb": "KB5053606",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "RCE",
+      "category": "rce_network",
+      "desc": "Windows NTFS heap buffer overflow \u2014 RCE via mounting crafted VHD, exploited ITW Mar 2025",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "user_interact"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "NTFS heap overflow RCE via VHD \u2014 pair with LPE for full code exec + SYSTEM chain.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "ntfs",
+        "vhd-rce"
+      ]
+    },
+    "CVE-2025-29824": {
+      "kb": "KB5055523",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver use-after-free \u2014 local SYSTEM, exploited ITW by Storm-2460 via PipeMagic to deploy RansomEXX (Apr 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "CLFS 0day used by Storm-2460 (PipeMagic \u2192 CLFS exploit \u2192 LSASS dump \u2192 RansomEXX). MSTIC + BI.ZONE analysis.",
+      "poc_urls": [
+        "https://github.com/AfanPan/CVE-2025-29824-Exploit"
+      ],
+      "tags": [
+        "itw",
+        "clfs",
+        "pipemagic",
+        "ransomware",
+        "storm-2460",
+        "ransomEXX"
+      ]
+    },
+    "CVE-2025-30400": {
+      "kb": "KB5058411",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Desktop Window Manager (DWM) Core Library EoP \u2014 local SYSTEM, exploited ITW as 0day (May 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "DWM 0day \u2014 7th DWM EoP of 2025. Exploited ITW before patch May 2025.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "dwm",
+        "0day"
+      ]
+    },
+    "CVE-2025-32701": {
+      "kb": "KB5058411",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver use-after-free EoP \u2014 local SYSTEM, exploited ITW (MSTIC discovery, May 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "CLFS UAF 0day \u2014 MSTIC discovered ITW exploitation. Part of ongoing CLFS attack dynasty (follows 2023/2024 ITW).",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "clfs",
+        "mstic",
+        "0day"
+      ]
+    },
+    "CVE-2025-32706": {
+      "kb": "KB5058411",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "CLFS driver heap buffer overflow EoP \u2014 local SYSTEM, exploited ITW (discovered by CrowdStrike, May 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Great",
+      "notes": "CLFS heap overflow 0day \u2014 discovered by CrowdStrike Counter Adversary Ops in late Apr 2025, reported to Microsoft.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "clfs",
+        "crowdstrike",
+        "0day"
+      ]
+    },
+    "CVE-2025-32709": {
+      "kb": "KB5058411",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows Ancillary Function Driver for WinSock EoP \u2014 local SYSTEM (May 2025 patch Tuesday)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "AFD.sys EoP \u2014 same driver family as CVE-2025-21418 and MS11-046. Watch for PoC.",
+      "poc_urls": [],
+      "tags": [
+        "afd",
+        "winsock"
+      ]
+    },
+    "CVE-2025-33073": {
+      "kb": "KB5061768",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows DWM Core Library EoP \u2014 local SYSTEM (Jun 2025 patch, exploitation more likely)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "DWM Core Library EoP \u2014 exploitation more likely per Microsoft. Jun 2025 patch.",
+      "poc_urls": [],
+      "tags": [
+        "dwm"
+      ]
+    },
+    "CVE-2025-38140": {
+      "kb": "KB5064627",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows Kernel EoP \u2014 local SYSTEM, exploited ITW as 0day (Jul 2025 Patch Tuesday)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Windows Kernel 0day \u2014 exploited ITW Jul 2025. Limited public details.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "kernel",
+        "0day"
+      ]
+    },
+    "CVE-2025-47981": {
+      "kb": "KB5067691",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows Kernel EoP \u2014 local SYSTEM, exploited ITW (Aug 2025 Patch Tuesday)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Windows Kernel 0day \u2014 exploited ITW Aug 2025. Limited public details.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "kernel",
+        "0day"
+      ]
+    },
+    "CVE-2025-57853": {
+      "kb": "KB5068121",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows Win32k EoP \u2014 local SYSTEM (Sep 2025 patch, exploitation more likely)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": false,
+      "reliability": "Good",
+      "notes": "Win32k EoP \u2014 exploitation more likely. Sep 2025.",
+      "poc_urls": [],
+      "tags": [
+        "win32k"
+      ]
+    },
+    "CVE-2025-24990": {
+      "kb": "KB5068823",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Agere Modem ltmdm64.sys driver EoP \u2014 admin privileges, exploited ITW (EDR evasion vector, Oct 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "x64"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Average",
+      "notes": "Legacy modem driver 0day (ltmdm64.sys) \u2014 shipped with Windows but rarely used. Likely used for EDR evasion. Oct 2025.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "legacy-driver",
+        "edr-evasion",
+        "0day"
+      ]
+    },
+    "CVE-2025-59230": {
+      "kb": "KB5068823",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "service_lpe",
+      "desc": "Windows improper access control EoP \u2014 local SYSTEM, exploited ITW as 0day (Oct 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Windows kernel access control 0day \u2014 exploited ITW Oct 2025 alongside CVE-2025-24990.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "0day",
+        "kernel"
+      ]
+    },
+    "CVE-2025-62215": {
+      "kb": "KB5068861",
+      "ms": null,
+      "cvss": 7.0,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_race",
+      "desc": "Windows Kernel race condition + double-free EoP \u2014 local SYSTEM, exploited ITW (CISA KEV, MSTIC discovery, Nov 2025)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Kernel race condition + double-free \u2014 CISA KEV. MSTIC internal discovery. All current Windows versions. Nov 2025.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "kernel-race",
+        "cisa-kev",
+        "0day",
+        "mstic"
+      ]
+    },
+    "CVE-2025-62221": {
+      "kb": "KB5073520",
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows Cloud Files Mini Filter Driver EoP \u2014 local SYSTEM, exploited ITW (final 0day of 2025, Dec)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "kb",
+      "vuln_builds": null,
+      "itw": true,
+      "reliability": "Good",
+      "notes": "Cloud Files Mini Filter Driver 0day \u2014 final ITW of 2025. Dec Patch Tuesday. All Windows 10/11.",
+      "poc_urls": [],
+      "tags": [
+        "itw",
+        "cloud-files",
+        "0day"
+      ]
+    },
+    "CVE-2026-26132": {
+      "kb": null,
+      "ms": null,
+      "cvss": 7.8,
+      "severity": "HIGH",
+      "type": "LPE",
+      "category": "kernel_driver",
+      "desc": "Windows kernel EoP \u2014 local SYSTEM (Jan 2026 disclosure, limited public detail, all modern Windows)",
+      "msf": null,
+      "edb": null,
+      "secwiki": null,
+      "requires": [
+        "local"
+      ],
+      "arch": [
+        "any"
+      ],
+      "affected": [
+        "10.0"
+      ],
+      "confidence": "build",
+      "vuln_builds": {
+        "10.0": [
+          19041,
+          99999
+        ]
+      },
+      "itw": false,
+      "reliability": "Average",
+      "notes": "Windows kernel EoP Jan 2026 \u2014 limited public details. Apply patches immediately.",
+      "poc_urls": [],
+      "tags": [
+        "kernel",
+        "2026"
+      ]
+    }
+  }
+}

