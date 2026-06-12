@@ -1,0 +1,102 @@
+name: Build WinIntel Binaries
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows-exe:
+    name: Windows .exe
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller rich
+
+      - name: Build .exe
+        run: |
+          pyinstaller `
+            --onefile `
+            --clean `
+            --name winintel `
+            --add-data "definitions.json;." `
+            --hidden-import rich `
+            --hidden-import rich.console `
+            --hidden-import rich.panel `
+            --hidden-import rich.rule `
+            --hidden-import rich.box `
+            winintel.py
+
+      - name: Verify build
+        run: |
+          dir dist\
+          dist\winintel.exe --version
+          dist\winintel.exe --db-count
+
+      - name: Upload .exe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: winintel-windows-exe
+          path: dist/winintel.exe
+          retention-days: 30
+
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/winintel.exe
+            definitions.json
+
+  build-linux-binary:
+    name: Linux binary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyinstaller rich
+
+      - name: Build Linux binary
+        run: |
+          pyinstaller \
+            --onefile \
+            --clean \
+            --name winintel \
+            --add-data "definitions.json:." \
+            --hidden-import rich \
+            --hidden-import rich.box \
+            winintel.py
+
+      - name: Verify build
+        run: |
+          ls -lh dist/winintel
+          ./dist/winintel --version
+          ./dist/winintel --db-count
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: winintel-linux
+          path: dist/winintel
+          retention-days: 30
+
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/winintel
