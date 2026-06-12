@@ -11,6 +11,15 @@ import urllib.request, urllib.error
 from datetime import datetime
 from pathlib import Path
 
+# Windows consoles default to cp1252, which can't encode characters like the
+# arrow or en-dash used in output. Force UTF-8 so output is consistent across
+# platforms. Safe no-op on Linux/macOS (already UTF-8).
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass  # older Python without reconfigure, or already-wrapped stream
+
 try:
     from rich.console import Console
     from rich.panel   import Panel
